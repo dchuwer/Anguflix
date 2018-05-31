@@ -1,0 +1,23 @@
+img {
+    max-width: 100%;
+}
+        
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    
+    justify-content: space-around;
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
+    
+.movie-card {
+    margin-top: 15px;
+    
+    width: 400px;
+}
+
+#price{
+    color: red;
+    
+}
