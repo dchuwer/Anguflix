@@ -1,3 +1,15 @@
-<p>
-  dialog-overview-add-funds-dialog works!
-</p>
+
+  
+    
+  
+    <h2 mat-dialog-title>Deposit Funds</h2>
+<mat-dialog-content>Which Amount?</mat-dialog-content>
+<mat-dialog-actions>
+    <mat-form-field>
+        <input matInput [(ngModel)]="budget">
+      </mat-form-field>
+  <button mat-button mat-dialog-close>Cancel</button>
+  <!-- The mat-dialog-close directive optionally accepts a value as a result for the dialog. -->
+  <button mat-button [mat-dialog-close]="budget">Deposit</button>
+</mat-dialog-actions>
+  

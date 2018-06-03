@@ -1,10 +1,12 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
 
   <mat-card-content> 
      <img src="{{ movie.img }}">          
      <p> {{movie.title }} - {{ movie.year }}</p>
      <p> {{movie.descrShort}}</p>
      <p id="price"> {{movie.price | currency}} </p>
-            
+     <i id="iconID"  *ngIf="showButton" mat-button color="primary" (click)="buttonClick(movie)"><mat-icon>{{buttonIcon}}</mat-icon></i>
    </mat-card-content>
    
  

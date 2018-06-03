@@ -1,62 +1,16 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
 
-<div class="container">
-    <div class="head">
-        <h2>AnguFlix
-        <span *ngIf="!removeButton" class="trash" (click)="remove(true)"> <mat-icon>remove_shopping_cart</mat-icon> </span>
-        <span *ngIf="removeButton" class="trash" (click)="remove(false)"> <mat-icon>done_outline</mat-icon> </span>
-        <span  class="budget" ><mat-icon md-50>account_balance_wallet</mat-icon> {{ budget | currency }}</span>
-        </h2>
-    </div>
-        <mat-form-field class="1">
-            <input matInput [(ngModel)]="fields.title" (ngModelChange)="updateFilters()" placeholder="Filter by Title..." />
-        </mat-form-field>
-        <mat-form-field>
-            <mat-select  [(ngModel)]="fields.year" (ngModelChange)="updateFilters()" placeholder="Any Year">
-              <mat-option *ngFor="let year of years"  [value]="year.viewValue">
-                {{ year.viewValue }}
-              </mat-option>
-            </mat-select>
-          </mat-form-field>
-    </div>
-  
-
-
-<div class="container">
-  
-  <div class="cards-container" layout-wrap layout="row">
-      <div *ngIf='!myList'>
-         <h1 >Select movies from below to add to your collection</h1>
-      </div>
-      <mat-card flex="30" *ngFor="let movie of myMovies | filterMymovies: filters  ;let idx = index" class="movie-card">
-          
-          <app-movie [movie]="movie"> </app-movie>
-  
-          <button *ngIf="removeButton" mat-button color="primary" (click)="removeMovie(idx)"><mat-icon>remove_shopping_cart</mat-icon></button>
-          
-        
-      </mat-card>
-    </div>
-
-  
-</div>
 <div class="line"></div><br>
 <div class="showAllMovies">
 <mat-form-field class="">
 <input matInput [(ngModel)]="filterTerm"  placeholder="Filter by Title..." />
 </mat-form-field>
 <h1> All Movies</h1>
-
 <div class="cards-container" layout-wrap layout="row">
-    
     <mat-card flex="30" *ngFor="let movie of movies | filter:filterTerm ;let idx = index" class="movie-card">
-  
-        <app-movie [movie]="movie"> </app-movie>
-
-        <button mat-button color="primary" (click)="buyMovie(idx)"><mat-icon md-50>add_shopping_cart</mat-icon></button>
-      
-    </mat-card>
+      <app-movie [movie]="movie" buttonIcon="add_shopping_cart"  (buttonOnClick)="buyMovie($event)"> </app-movie>
+   </mat-card>
   </div>
 </div>
 

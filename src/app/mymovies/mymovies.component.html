@@ -1,0 +1,20 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+
+<div class="container" >
+        <div *ngIf="myMovies.length>0" class="title">
+           <h1>My collection
+           <span class="logoRemove"  (click)="remove()"><mat-icon>{{iconText}}</mat-icon> </span>
+           </h1>
+        </div>
+
+
+   <div class="cards-container" layout-wrap layout="row">
+      <div >
+         <h1 *ngIf="myMovies.length==0">Select movies from below to add to your collection</h1>
+      </div>
+      <mat-card flex="30" *ngFor="let movie of myMovies" class="movie-card">
+          <app-movie  id="buttonClass"  [movie]="movie" [showButton]="showButton" buttonIcon='remove_shopping_cart' (buttonOnClick)="removeMovie($event)"> </app-movie>
+      </mat-card>
+    </div>
+</div>

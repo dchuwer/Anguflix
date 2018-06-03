@@ -2,7 +2,8 @@ import { Pipe, PipeTransform } from '@angular/core';
 import { Movie } from './movie'
 
 @Pipe({
-  name: 'filterMymovies'
+  name: 'filterMymovies',
+  pure: false
 })
 export class FilterMymoviesPipe implements PipeTransform {
 

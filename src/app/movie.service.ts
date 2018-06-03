@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Movie } from './Movie';
-import { BudgetComponent } from "./budget/budget.component"
-import { AddFundsComponent } from './add-funds/add-funds.component'
+import { UserComponent } from "./user/user.component"
+import { FindMovie } from './findmovie'
 
 
 const MOVIES = [
@@ -18,13 +18,18 @@ for (let i=1980; i<2018; i++){
    years.push(yearObj);
  }
 
-let myMovies = new Array<Movie>();
-let Budget = new BudgetComponent();
+let myMovies : Array<Movie> = [];
+let userComponent = new UserComponent();
+let findMovie = new FindMovie();
 
 @Injectable()
 export class MovieService {
+   budget: number;
 
-  constructor() { }
+  constructor() { 
+    this.budget = userComponent.user.budget
+
+  }
 
   getMovies() : Movie[] {
     return MOVIES;
@@ -35,26 +40,30 @@ export class MovieService {
   }
 
   getBudget() {
-    return Budget.budget;
+    return this.budget
   }
 
-  addBudget() {
-
+  addBudget(newDeposit:number) {
+    console.log(this.budget)
+    this.budget += newDeposit
+    console.log(this.budget)
   }
 
   checkBudget(movie) {
-    if (movie.price < Budget.budget){
+    if (movie.price < this.budget){
       
-      Budget.budget -= movie.price;
-      
+      this.budget -= movie.price;
+      console.log(this.budget)
       myMovies.push(movie)
       return true;
     }
     return false;   
   }
 
-  removeMovie(index){
-    Budget.budget += myMovies[index].price;
+  removeMovie(movie){
+    let index = myMovies.findIndex(x => x.id==movie.id);
+    this.budget += myMovies[index].price;
+    console.log(this.budget)
     myMovies.splice(index,1)
     
   }

@@ -13,24 +13,28 @@ import {MatDialogModule} from '@angular/material/dialog';
 
 import { AppComponent } from './app.component';
 import { MoviesComponent } from './movies/movies.component';
-import { BudgetComponent } from './budget/budget.component';
 import { MovieService } from './movie.service';
 import { MovieComponent } from './movie/movie.component';
 import { FilterPipe } from './filter.pipe';
 import { FilterMymoviesPipe } from './filter-mymovies.pipe';
-import { AddFundsComponent } from './add-funds/add-funds.component';
 import { DialogOverviewAddFundsDialogComponent } from './dialog-overview-add-funds-dialog/dialog-overview-add-funds-dialog.component';
+import { MymoviesComponent } from './mymovies/mymovies.component';
+import { HeadComponent } from './head/head.component';
+import { UserComponent } from './user/user.component';
+import { FilterComponent } from './filter/filter.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MoviesComponent,
-    BudgetComponent,    
     MovieComponent,
     FilterPipe,
     FilterMymoviesPipe,
-    AddFundsComponent,
     DialogOverviewAddFundsDialogComponent,
+    MymoviesComponent,
+    HeadComponent,
+    UserComponent,
+    FilterComponent,
     
   ],
   imports: [
@@ -45,6 +49,8 @@ import { DialogOverviewAddFundsDialogComponent } from './dialog-overview-add-fun
     FormsModule,
     MatDialogModule
   ],
+  
+  entryComponents: [DialogOverviewAddFundsDialogComponent],
   providers: [MovieService],
   bootstrap: [AppComponent]
 })

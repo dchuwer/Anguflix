@@ -1,9 +1,23 @@
-@import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
+.buttonClass {
+    color: green;
+}
 
+.container{
+    padding-top: 3.5%;
+    
+}
 
+/* :host ::ng-deep i{
+    display: none;
+} */
 
-
+.logoRemove {
+    padding-top: 10%;
+    color: white;
+    padding-left: 40px;
+    
+}
 img {
     max-width: 100%;
 }
@@ -28,19 +42,8 @@ h3 {
 }
     
 .movie-card {
-    margin-top: 15px;
+    margin-top: 12px;
     
     width: 400px;
 }
 
-.trash {
-    padding-left: 70%;
-}
-
-.budget {
-    font-size: 30px;
-}
-
-.line {
-    border-style: outset;
-}
