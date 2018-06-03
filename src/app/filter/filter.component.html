@@ -1,9 +1,9 @@
 
 <mat-form-field class="1">
-    <input matInput [(ngModel)]="filters.title" (ngModelChange)="updateFilters()" placeholder="Filter by Title..." />
+    <input matInput [(ngModel)]="fields.title" (ngModelChange)="buttonOnClick(fields.title)" placeholder="Filter by Title..." />
 </mat-form-field>
 <mat-form-field>
-    <mat-select  [(ngModel)]="filters.year" (ngModelChange)="updateFilters()" placeholder="Any Year">
+    <mat-select  [(ngModel)]="fields.year" (ngModelChange)="buttonOnClick(fields.year)" placeholder="Any Year">
       <mat-option *ngFor="let year of years"  [value]="year.viewValue">
         {{ year.viewValue }}
       </mat-option>

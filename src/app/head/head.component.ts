@@ -32,7 +32,7 @@ export class HeadComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.moviesService.budget)
+    
   }
 
 }

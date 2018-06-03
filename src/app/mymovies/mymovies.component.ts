@@ -11,6 +11,7 @@ import { NgStyle } from '@angular/common';
 
 export class MymoviesComponent implements OnInit {
 
+  filter: Object = {};
   myMovies = new Array<Movie>();
   showButton : boolean = false;
   buttonIcon : string 
@@ -22,6 +23,10 @@ export class MymoviesComponent implements OnInit {
   removeMovie(movie){
     this.moviesService.removeMovie(movie);
     
+  }
+
+  buildFilters(filter){
+    this.filter = filter;
   }
 
   

@@ -44,16 +44,12 @@ export class MovieService {
   }
 
   addBudget(newDeposit:number) {
-    console.log(this.budget)
     this.budget += newDeposit
-    console.log(this.budget)
   }
 
   checkBudget(movie) {
     if (movie.price < this.budget){
-      
       this.budget -= movie.price;
-      console.log(this.budget)
       myMovies.push(movie)
       return true;
     }
@@ -63,7 +59,6 @@ export class MovieService {
   removeMovie(movie){
     let index = myMovies.findIndex(x => x.id==movie.id);
     this.budget += myMovies[index].price;
-    console.log(this.budget)
     myMovies.splice(index,1)
     
   }
