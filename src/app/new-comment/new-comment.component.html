@@ -1,0 +1,17 @@
+<div class="new-comment">
+  <h4> Add a new comment</h4>
+  <mat-form-field  class="comment-full-width">
+    <input matInput [(ngModel)] = "name" placeholder="Name" >
+  </mat-form-field>
+  <br>
+  <mat-form-field class="comment-full-width">
+    <textarea matInput [(ngModel)] = "comment" placeholder="Leave a comment"></textarea>
+  </mat-form-field>
+  <br>
+  
+  <mat-form-field class="comment-full-width">
+    <input matInput [(ngModel)] = "rate"  placeholder="Rate" >
+  </mat-form-field>
+  <br>
+  <button  mat-button color="accent" (click)="buttonClick(name, comment, rate)">Submit</button>
+</div>

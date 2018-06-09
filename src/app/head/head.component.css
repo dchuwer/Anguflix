@@ -1,5 +1,10 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
+span {
+    font-family: Righteous;
+    font-size: 28px;
+  
+}
 
 
 .head {

@@ -1,6 +1,11 @@
 img {
     max-width: 100%;
 }
+
+#iconExpand {
+    padding-left:350px;
+    font-size: 35px;
+}
         
 .cards-container {
     display: flex;
@@ -13,12 +18,16 @@ img {
     
 .movie-card {
     margin-top: 15px;
-    
+    text-align: center;
     width: 400px;
 }
 
 #price{
     color: red;
     
+}
+
+.movie {
+    text-align: center;
 }
 

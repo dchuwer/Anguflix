@@ -1,7 +1,7 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MovieService } from '../movie.service'
 import { Movie } from '../movie'
-import { FindMovie } from '../findmovie'
+import { ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -14,33 +14,42 @@ import { FindMovie } from '../findmovie'
 
 export class MoviesComponent implements OnInit {
 
-  findMovie = new FindMovie();
+  
   movies = new Array<Movie>();
   myMovies = new Array<Movie>();
   
 
   constructor(private moviesService : MovieService) {
 
-    this.movies = this.moviesService.getMovies();
-    this.myMovies = this.moviesService.getMyMovies();
+   this.moviesService.getMovies().subscribe( (movies) => { 
+    this.movies = movies });
+    
     
    }
 
 
   buyMovie(movie){
-   
-   let findIt = this.findMovie.findIt(movie,this.myMovies)
-   if (findIt == undefined){
-   let enoughBudget = this.moviesService.checkBudget(movie);
-   
- ;
+   let findIt = this.moviesService.findMovie(movie)
+   if (!findIt){
+    let checkBudget = this.moviesService.checkBudget(movie);
+    if (!checkBudget) {
+      alert('You dont have enough funds to buy ths film ')
+      return
+    }
    }
    else 
      alert('You selected yet this film !!')
   }
 
-  
-  ngOnInit() {
+  getMovieFilter(filter) {
+    this.moviesService.getMoviesByFilter(filter).subscribe( (movies) => {
+     this.movies = movies
+   })  
+  }
+   
+   
+   ngOnInit() {
+    
   }
 
 }

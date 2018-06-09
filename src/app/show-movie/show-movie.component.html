@@ -1,0 +1,24 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+
+<div class="cards-container" layout-wrap layout="row">
+<div class="movie">
+  <mat-card-content> 
+     <img src="{{ movie.imgUrl }}">          
+     <h3> {{movie.title }} - {{ movie.year }}</h3>
+     <p> {{movie.fullDescription}}</p>
+     <p> {{movie.director}}</p>
+     <p id="price"> {{movie.price | currency}} </p>
+     <p>Comments</p>
+        <div class="comments" flex="30" *ngFor="let movie of movie.reviews" class="movie-card">
+        <app-comments [movie]="movie"></app-comments>
+       
+      </div>
+     <br> <br>
+     <i id="iconReturn"   mat-button color="primary" [routerLink]="['/']"><mat-icon>arrow_back_ios</mat-icon></i>
+     <i id="iconID"   mat-button color="primary" (click)="buttonClick(movie)"><mat-icon>add_shopping_cart</mat-icon></i>
+     <br> <br>
+     <app-new-comment (newCommentClick)="addNewComment(movie._id, $event)"></app-new-comment>
+   
+    </mat-card-content>  
+</div>
