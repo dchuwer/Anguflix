@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MovieService } from '../movie.service';
+import { UserService } from '../user.service';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import { DialogOverviewAddFundsDialogComponent } from '../dialog-overview-add-funds-dialog/dialog-overview-add-funds-dialog.component';
 import { UserComponent } from "../user/user.component"
@@ -11,10 +11,10 @@ import { User } from '../User';
   styleUrls: ['./head.component.css']
 })
 export class HeadComponent implements OnInit {
-   
   
-  constructor(private moviesService : MovieService,public dialog: MatDialog) { 
-
+  userComponent = new UserComponent();
+  constructor(private userService : UserService,public dialog: MatDialog) { 
+    
   }
 
   addFunds(){
@@ -25,13 +25,14 @@ export class HeadComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log(result);
-      this.moviesService.addBudget(result);
+      this.userService.addBudget(result);
       
       
     });
   }
 
   ngOnInit() {
+    console.log(this.userService.budget)
     
   }
 

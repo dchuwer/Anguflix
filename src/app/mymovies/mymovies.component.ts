@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from '../user.service'
 import { MovieService } from '../movie.service'
 import { Movie } from '../movie'
 import { NgStyle } from '@angular/common';
@@ -12,16 +13,21 @@ import { NgStyle } from '@angular/common';
 export class MymoviesComponent implements OnInit {
 
   filter: Object = {};
-  myMovies = new Array<Movie>();
+  myMovies: Array<Movie> = [];
   showButton : boolean = false;
   buttonIcon : string 
   iconText: string = 'remove_shopping_cart'
-  constructor(private moviesService : MovieService) { 
-  this.myMovies = this.moviesService.getMyMovies();
-  
+  constructor(private userService : UserService, private movieService : MovieService ) { 
+     this.myMovies = this.userService.getMyMovies()
+     
+     this.userService.myMovieUpdated.subscribe( (data) => {
+        this.myMovies = data
+      })
+         this.calcBudget();
   }
   removeMovie(movie){
-    this.moviesService.removeMovie(movie);
+    console.log(movie) 
+    this.userService.removeMovie(movie);
     
   }
 
@@ -29,6 +35,14 @@ export class MymoviesComponent implements OnInit {
     this.filter = filter;
   }
 
+  calcBudget(){
+    
+    let sumMovies = 0;
+    for ( let i of this.myMovies){
+      sumMovies += i.price
+    }
+    this.userService.calcBudget(sumMovies); 
+  }
   
   remove() {
     
@@ -48,6 +62,13 @@ export class MymoviesComponent implements OnInit {
   }
   
   ngOnInit() {
+    // this.userService.myMovieUpdated.subscribe( (data) => {
+    //     this.myMovies = data;
+    //     this.calcBudget() })
+
+    
+   
+    
   }
 
 }

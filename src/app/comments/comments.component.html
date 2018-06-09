@@ -1,0 +1,16 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<div class="comments">
+    <p> Name: {{ movie.name }}   </p>
+        
+            <ngb-rating [(rate)]="movie.rating">
+                <template fill="fill">
+                <span class="star"[class.filled]="fill === 100">★</span>
+                </template>
+            </ngb-rating>
+                
+                
+
+    <p> Comments: {{ movie.text }}</p>
+</div>
+ 
+

@@ -1,13 +1,17 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
-
+<div class='movie'>
   <mat-card-content> 
-     <img src="{{ movie.img }}">          
-     <p> {{movie.title }} - {{ movie.year }}</p>
-     <p> {{movie.descrShort}}</p>
+     
+     <i id="iconExpand"  mat-button color="primary" (click)="expandClick(movie._id)"><mat-icon>open_in_new</mat-icon></i> 
+     <br>        
+     <img src="{{ movie.imgUrl }}"> 
+     <h3> {{movie.title }} - {{ movie.year }}</h3>
+     <p> {{movie.shortDescription}}</p>
      <p id="price"> {{movie.price | currency}} </p>
+     
      <i id="iconID"  *ngIf="showButton" mat-button color="primary" (click)="buttonClick(movie)"><mat-icon>{{buttonIcon}}</mat-icon></i>
    </mat-card-content>
-   
+  </div>
  
 

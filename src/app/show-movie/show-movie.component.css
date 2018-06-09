@@ -1,0 +1,57 @@
+img {
+    /* max-width: 300%; */
+    max-height: 300px;
+    text-align: center;
+}
+
+p {
+    color: white;
+    text-align: center;
+    font-size: 18px;
+}
+
+h2 {
+   
+    font-size: 28px; 
+    color: wheat;
+}
+        
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    
+    justify-content: space-around;
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
+    
+.movie {
+    text-align: center;
+    margin-top: 120px;
+    padding: 30px 15px;
+    border: 5px solid rgb(0, 225, 255);
+    width: 600px;
+    color: whitesmoke;
+}
+
+.trash {
+    padding-left: 70%;
+}
+
+.budget {
+    font-size: 30px;
+}
+
+.line {
+    border-style: outset;
+}
+
+icon {
+    color: white;
+}
+
+.iconReturn{
+    position: relative;
+    padding-left: 0;
+}
+

@@ -4,12 +4,12 @@
 <div class="line"></div><br>
 <div class="showAllMovies">
 <mat-form-field class="">
-<input matInput [(ngModel)]="filterTerm"  placeholder="Filter by Title..." />
+<input matInput [(ngModel)]="filterTerm" (ngModelChange)="getMovieFilter(filterTerm)" placeholder="Filter by Title..." />
 </mat-form-field>
 <h1> All Movies</h1>
-<div class="cards-container" layout-wrap layout="row">
-    <mat-card flex="30" *ngFor="let movie of movies | filter:filterTerm ;let idx = index" class="movie-card">
-      <app-movie [movie]="movie" buttonIcon="add_shopping_cart"  (buttonOnClick)="buyMovie($event)"> </app-movie>
+<div class="cards-container"  layout-wrap layout="row">
+    <mat-card flex="30" *ngFor="let movie of movies ;let idx = index" class="movie-card">
+      <app-movie  [movie]="movie" buttonIcon="add_shopping_cart"  (buttonOnClick)="buyMovie($event)"> </app-movie>
    </mat-card>
   </div>
 </div>

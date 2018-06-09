@@ -9,11 +9,16 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import {MatSelectModule} from '@angular/material/select';
 import { FormsModule } from '@angular/forms';
 import {MatDialogModule} from '@angular/material/dialog';
+import { HttpClientModule } from '@angular/common/http';
+import { RouterModule, Routes } from '@angular/router';
+import { StorageServiceModule} from 'angular-webstorage-service';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 
 import { AppComponent } from './app.component';
 import { MoviesComponent } from './movies/movies.component';
 import { MovieService } from './movie.service';
+import { UserService } from './user.service'
 import { MovieComponent } from './movie/movie.component';
 import { FilterPipe } from './filter.pipe';
 import { FilterMymoviesPipe } from './filter-mymovies.pipe';
@@ -22,6 +27,11 @@ import { MymoviesComponent } from './mymovies/mymovies.component';
 import { HeadComponent } from './head/head.component';
 import { UserComponent } from './user/user.component';
 import { FilterComponent } from './filter/filter.component';
+import { AppRoutingModule } from './/app-routing.module';
+import { ShowMovieComponent } from './show-movie/show-movie.component';
+import { HomeComponent } from './home/home.component';
+import { CommentsComponent } from './comments/comments.component';
+import { NewCommentComponent } from './new-comment/new-comment.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +45,11 @@ import { FilterComponent } from './filter/filter.component';
     HeadComponent,
     UserComponent,
     FilterComponent,
+    ShowMovieComponent,
+    HomeComponent,
+    CommentsComponent,
+    NewCommentComponent
+    
     
   ],
   imports: [
@@ -47,11 +62,17 @@ import { FilterComponent } from './filter/filter.component';
     AngularFontAwesomeModule,
     MatSelectModule,
     FormsModule,
-    MatDialogModule
+    MatDialogModule,
+    RouterModule,
+    HttpClientModule,
+    StorageServiceModule,
+    AppRoutingModule,
+    NgbModule.forRoot()
+    
   ],
   
   entryComponents: [DialogOverviewAddFundsDialogComponent],
-  providers: [MovieService],
+  providers: [MovieService,UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

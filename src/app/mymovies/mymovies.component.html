@@ -18,7 +18,7 @@
          <h1 *ngIf="myMovies.length==0">Select movies from below to add to your collection</h1>
       </div>
       <mat-card flex="30" *ngFor="let movie of myMovies | filterMymovies:filter" class="movie-card">
-          <app-movie  id="buttonClass"  [movie]="movie" [showButton]="showButton" buttonIcon='remove_shopping_cart' (buttonOnClick)="removeMovie($event)"> </app-movie>
+          <app-movie   id="buttonClass"  [movie]="movie" [showButton]="showButton" buttonIcon='remove_shopping_cart' (buttonOnClick)="removeMovie($event)"> </app-movie>
       </mat-card>
     </div>
 </div>
